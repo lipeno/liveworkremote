@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $q, GetMyCoordinates) {
 
         $scope.description = "Click on a pin";
         $scope.onMarkerClicked = function(markerId) {
@@ -49,5 +49,22 @@ angular.module('angularApp')
         }
 
         $scope.markers = markers;
+
+
+        $scope.setCoordinates = function() {
+            GetMyCoordinates().then(function success(data) {
+                var pos = data;
+                $scope.map = {
+                    center: {
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude
+                    },
+                    zoom: 8
+                };
+                console.log(data);
+            }, function error(msg) {
+                console.error(msg);
+            });
+        };
 
   });

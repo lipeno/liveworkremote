@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   enum role: [:normal, :admin] # Normal user is represented by 0, admin by 1
   after_initialize :set_default_role, :if => :new_record?
 
+  has_many :locations
+
   def set_default_role
     self.role ||= :normal
   end
