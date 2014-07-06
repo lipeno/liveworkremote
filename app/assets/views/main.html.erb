@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <map zoom="11" center="[40.74, -74.18]">
-        <marker position="[40.71, -74.21]" title="hello" on-click="foo(2,3)"></marker>
-        <marker position="[40.73, -74.19]" title="drag me" draggable="true"></marker>
-      </map>
+      <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
+        <markers models="markers" coords="'self'" doCluster=true click="'onClicked'">
+        </markers>
+      </google-map>
+
     </div>
     <div class="col-md-4">
       {{description}}

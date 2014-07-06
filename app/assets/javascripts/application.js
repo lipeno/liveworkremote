@@ -13,7 +13,7 @@
 //=require ./vendor/modules/ng-infinite-scroll.js
 //=require ./vendor/modules/ui-bootstrap-tpls-0.11.0
 //=require ./vendor/modules/ng-table
-//=require ./vendor/modules/ng-map
+//=require ./vendor/modules/angular-google-maps.min.js
 //=require app/app.js
 //=require app/routes.js
 //=require_tree ./app/main

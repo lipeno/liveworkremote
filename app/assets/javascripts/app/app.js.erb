@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularApp', ['ngMap', 'ui.router','restangular', 'infinite-scroll', "ui.bootstrap.tpls", 'ui.bootstrap.pagination'])
+angular.module('angularApp', ['google-maps', 'ui.router','restangular', 'infinite-scroll', "ui.bootstrap.tpls", 'ui.bootstrap.pagination'])
     .config(function(RestangularProvider) { // Configure Restangular
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setMethodOverriders(["put", "patch"]);
