@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div ng-switch on="switcher.value" class="col-xs-4 col-xs-offset-4">
+            <div ng-switch-when="signin">
+                <h2>Sign in
+                    <small><a class="btn" ng-click='switcher.value = "signup"'>Sign up?</a></small>
+                </h2>
+
+                <signin-user></signin-user>
+            </div>
+            <div ng-switch-when="signup">
+                <h2>Sign up
+                    <small><a class="btn" ng-click='switcher.value = "signin"'>Sign in?</a></small>
+                </h2>
+                <signup-user></signup-user>
+            </div>
+        </div>
+
+    </div>
+</div>

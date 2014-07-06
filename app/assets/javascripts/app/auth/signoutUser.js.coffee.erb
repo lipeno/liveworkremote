@@ -1,0 +1,8 @@
+angular.module('angularApp').directive 'signoutUser', ['$location', 'Session', '$rootScope', ($location, Session, $rootScope) ->
+  templateUrl: '<%= asset_path("users/signout.html") %>'
+  restrict: 'E'
+  replace: true
+  link: (scope, element, attrs) ->
+    scope.signout = ->
+      Session.signout()
+]

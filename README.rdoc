@@ -1,0 +1,1 @@
+Application with AngularJS Authentication done by using exclusively AJAX on the frontend and communicating with Rails & Devise on the backend 

@@ -1,0 +1,13 @@
+<li ng-class="{ current: activePath=='admin' }" ng-show="current_user" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#/add" ng-cloak>
+        <i class="icon-user"></i> Add your location ({{current_user.email}}) <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        <li>
+            <a href="#/add">Edit your location</a>
+        </li>
+        <li>
+            <a href="#" ng-click="signout()">Sign out</a>
+        </li>
+    </ul>
+</li>

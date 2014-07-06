@@ -1,0 +1,28 @@
+<div class="container">
+    <form name="registrationForm" class="auth-form col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="form-group email required user_email">
+            <label class="control-label">Email</label>
+            <div class="controls">
+                <input type="text" class="input-block-level form-control" placeholder="Email address" ng-model="user.email" required autofocus>
+            </div>
+        </div>
+        <div class="form-group password required user_password">
+            <label class="control-label">Password</label>
+            <div class="controls">
+                <input type="password" class="input-block-level form-control" placeholder="Password" ng-model="user.password" required>
+            </div>
+        </div>
+        <div class="form-group password required user_password">
+            <label class="control-label">Confirm Password</label>
+            <div class="controls">
+                <input type="password" class="input-block-level form-control" placeholder="Confirm Password" ng-model="user.confirm_password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <a class="btn btn-large btn-success" type="submit" ng-click="signup(user)" ng-disabled="registrationForm.$invalid">Sign up</a>
+            </div>
+        </div>
+    </form>
+</div>

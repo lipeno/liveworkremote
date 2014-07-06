@@ -1,0 +1,38 @@
+angular.module('angularApp')
+        .config(function ($urlRouterProvider, $stateProvider) { // Configure routes
+            $urlRouterProvider.otherwise("/main");
+            $stateProvider
+                    .state('main', {
+                        url: "/main",
+                        templateUrl: '<%= asset_path("main.html") %>',
+                        controller: 'MainCtrl'
+                    })
+                    .state('add', {
+                        url: "/add",
+                        templateUrl: '<%= asset_path("add.html") %>',
+                        controller: 'AddCtrl',
+                        authenticate: true
+                    })
+                    .state('auth', {
+                        url: "/auth",
+                        templateUrl: '<%= asset_path("users/auth.html") %>',
+                        controller: 'AuthCtrl'
+                    })
+        })
+        .run(function ($rootScope, Session, $state) { // Configure routes
+
+            // Add current user to rootScope
+            if (!$rootScope.current_user) {
+                Session.isAuthorized();
+            }
+
+            // Only allow authorised users on restricted pages
+            $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+                if (toState.authenticate && !Session.isAuthorized()){ // If user need to be registered
+                    // User isn’t authenticated
+                    $state.transitionTo("auth");
+                    event.preventDefault();
+                }
+            });
+
+        });

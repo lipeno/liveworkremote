@@ -1,0 +1,8 @@
+angular.module('angularApp').directive 'signupUser', ['$location', 'Session', ($location, Session) ->
+  templateUrl: '<%= asset_path("users/signup.html") %>'
+  restrict: 'E'
+  replace: true
+  link: (scope, element, attrs) ->
+    scope.signup = (user) ->
+      Session.signup(user)
+]

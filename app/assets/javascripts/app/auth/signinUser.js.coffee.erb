@@ -1,0 +1,8 @@
+angular.module('angularApp').directive 'signinUser', ['$location', '$http', 'Session', ($location, $http, Session) ->
+  templateUrl: '<%= asset_path("users/signin.html") %>'
+  restrict: 'E'
+  replace: true
+  link: (scope, element, attrs) ->
+    scope.signin = (user) ->
+      Session.signin(user)
+]
