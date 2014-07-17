@@ -50,14 +50,14 @@ angular.module('angularApp')
                         $scope.user.latitude = parseFloat(pos.coords.latitude);
                         $scope.user.longitude = parseFloat(pos.coords.longitude);
                 }
-                //                var newMarker = {
-//                    id: 1,
-//                    latitude: parseFloat(pos.coords.latitude),
-//                    longitude: parseFloat(pos.coords.longitude),
-//                    showWindow: true,
-//                    title: "My location"
-//                };
-//                $scope.markers.push(newMarker);
+                                var newMarker = {
+                    id: 1,
+                    latitude: parseFloat(pos.coords.latitude),
+                    longitude: parseFloat(pos.coords.longitude),
+                    showWindow: true,
+                    title: "My location"
+                };
+                $scope.markers[0] = newMarker;
 
                 // Save to db
 

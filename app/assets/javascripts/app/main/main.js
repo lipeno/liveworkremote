@@ -54,8 +54,6 @@ angular.module('angularApp')
 
 
                 }
-                $scope.markers = markers;
-
             }).
             error(function (data, status, headers, config) {
                 console.log(data);
