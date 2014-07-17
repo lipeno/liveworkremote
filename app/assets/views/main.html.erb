@@ -1,16 +1,40 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <em>Select a person by clicking on the map or     <button type="button" class="btn btn-default"  ng-click="setCoordinates()" >Locate Me</button>
+      </em>
+
+    </div></div>
+
+  <div class="row">
+
     <div class="col-md-8">
+
       <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
-        <markers models="markers" coords="'self'" doCluster=true click="'onClicked'">
+        <markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">
         </markers>
       </google-map>
 
-      <a ng-click="setCoordinates()" class="button button-icon icon ion-navigate">Find Me</a>
-
     </div>
     <div class="col-md-4">
-      {{description}}
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Name</div>
+        <div class="panel-body">{{full_name}}</div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Work</div>
+        <div class="panel-body">{{work}}</div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Hobbies</div>
+        <div class="panel-body">{{hobbies}}</div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Life and travel plans</div>
+        <div class="panel-body">{{plans}}</div>
+      </div>
+
     </div>
     </div>
 </div>

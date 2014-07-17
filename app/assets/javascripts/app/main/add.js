@@ -1,13 +1,58 @@
 'use strict';
 
 angular.module('angularApp')
-    .controller('AddCtrl', function ($scope) {
+    .controller('AddCtrl', function ($scope, GetMyCoordinates) {
 
-        $scope.foo = function(event, arg1, arg2) {
-            alert('this is at '+ this.getPosition());
-            alert(arg1+arg2);
-            $scope.description = "User: John Smith, Occupation: developer";
-        }
+        $scope.markers = [];
+        $scope.map = {
+            center: {
+                latitude: 40.74,
+                longitude: -74.18
+            },
+            zoom: 8
+        };
 
-        $scope.description = "Click on a pin";
+
+        $scope.setCoordinates = function() {
+            GetMyCoordinates().then(function success(data) {
+                var pos = data;
+                $scope.map = {
+                    center: {
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude
+                    },
+                    zoom: 8
+                };
+                console.log(data);
+            }, function error(msg) {
+                console.error(msg);
+            });
+        };
+
+        $scope.saveCoordinates = function() {
+            $scope.setCoordinates();
+            GetMyCoordinates().then(function success(data) {
+                var pos = data;
+                var newMarker = {
+                    id: 1,
+                    latitude: parseFloat(pos.coords.latitude),
+                    longitude: parseFloat(pos.coords.longitude),
+                    showWindow: true,
+                    title: "My location"
+                };
+
+                $scope.markers.push(newMarker);
+
+                // Save to db
+
+                console.log(data);
+            }, function error(msg) {
+                console.error(msg);
+            });
+        };
+
+        $scope.setCoordinates();
+
+
+
     });

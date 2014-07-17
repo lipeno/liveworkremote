@@ -10,6 +10,11 @@ PalytteApp::Application.routes.draw do
     delete "/signout" => "sessions#destroy"
     post "/signup" => "registrations#create"
     get 'current_user' => 'sessions#show_current_user'
+    get 'current_user' => 'sessions#show_current_user'
+  end
+
+  namespace :api, defaults: {format: 'json'} do
+    resources :users, :only => [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

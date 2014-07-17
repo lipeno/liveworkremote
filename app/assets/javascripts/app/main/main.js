@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('angularApp')
-  .controller('MainCtrl', function ($scope, $q, GetMyCoordinates) {
+    .controller('MainCtrl', function ($scope, $q, GetMyCoordinates, $http) {
 
-        $scope.description = "Click on a pin";
-        $scope.onMarkerClicked = function(markerId) {
-            console.log(markerId + "clicked");
-            $scope.description = "User: John Smith, Occupation: developer, id: " + markerId;
+        $scope.onMarkerClicked = function (user, marker) {
+            // marker.showWindow = true;
+            $scope.$apply(function () {
+                $scope.hobbies = user.hobbies;
+                $scope.full_name = user.full_name;
+                $scope.work = user.work;
+                $scope.plans = user.plans;
+            });
         };
 
         $scope.map = {
@@ -17,41 +21,48 @@ angular.module('angularApp')
             zoom: 8
         };
 
-        var markers = new Array();
 
-        var someData = [
-            {
-            latitude: 40.71,
-            longitude: -74.21
-            },
-            {
-                latitude: 40.73,
-                longitude: -74.19
-            }
+        $scope.allUsers = [];
 
-        ]
+        $http({method: 'GET', url: '/api/users'}).
+            success(function (data, status, headers, config) {
+                $scope.allUsers = data;
 
-        for(var i = 0; i < someData.length; i++ ){
+                $scope.markers = [];
 
-            var newMarker = {
-                id: parseInt(i),
-                latitude: parseFloat(someData[i].latitude),
-                longitude: parseFloat(someData[i].longitude),
-                showWindow: false,
-                title: "Marker"+i
-            }
+                for (var i = 0; i < $scope.allUsers.length; i++) {
+                    // Using Immediately-Invoked Function Expression/closure to avoid problem with having the variable i
+                    // within each of anonymous functions being bound to the same variable outside of the function.
+                    (function (i) {
+                        var newMarker = {
+                            id: parseInt(i),
+                            latitude: parseFloat($scope.allUsers[i].latitude),
+                            longitude: parseFloat($scope.allUsers[i].longitude),
+                            showWindow: false,
+                            title: "Marker" + i
+                        }
 
-            newMarker.onClicked = function () {
-                $scope.onMarkerClicked(newMarker.id);
-            }
+                        var user = $scope.allUsers[i];
 
-            markers.push(newMarker);
-        }
+                        newMarker.onClicked = function () {
+                            $scope.onMarkerClicked(user, newMarker);
+                        };
 
-        $scope.markers = markers;
+                        $scope.markers.push(newMarker);
+
+                    })(i);
 
 
-        $scope.setCoordinates = function() {
+                }
+                $scope.markers = markers;
+
+            }).
+            error(function (data, status, headers, config) {
+                console.log(data);
+            });
+
+
+        $scope.setCoordinates = function () {
             GetMyCoordinates().then(function success(data) {
                 var pos = data;
                 $scope.map = {
@@ -67,4 +78,4 @@ angular.module('angularApp')
             });
         };
 
-  });
+    });
