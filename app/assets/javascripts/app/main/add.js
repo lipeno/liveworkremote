@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('angularApp')
-    .controller('AddCtrl', function ($scope, GetMyCoordinates) {
+    .controller('AddCtrl', function ($scope, GetMyCoordinates, Restangular, Session) {
+        Session.requestCurrentUser().then(function(userData) {
+            var userId = userData.data.id;
+            Restangular.one('users', userId).get().then(function(user) {
+                $scope.user = user;
+            });
+        });
+
 
         $scope.markers = [];
         $scope.map = {
@@ -12,6 +19,11 @@ angular.module('angularApp')
             zoom: 8
         };
 
+        $scope.saveData = function() {
+            if ($scope.user){
+                $scope.user.save();
+            }
+        };
 
         $scope.setCoordinates = function() {
             GetMyCoordinates().then(function success(data) {
@@ -33,15 +45,19 @@ angular.module('angularApp')
             $scope.setCoordinates();
             GetMyCoordinates().then(function success(data) {
                 var pos = data;
-                var newMarker = {
-                    id: 1,
-                    latitude: parseFloat(pos.coords.latitude),
-                    longitude: parseFloat(pos.coords.longitude),
-                    showWindow: true,
-                    title: "My location"
-                };
 
-                $scope.markers.push(newMarker);
+                if ($scope.user){
+                        $scope.user.latitude = parseFloat(pos.coords.latitude);
+                        $scope.user.longitude = parseFloat(pos.coords.longitude);
+                }
+                //                var newMarker = {
+//                    id: 1,
+//                    latitude: parseFloat(pos.coords.latitude),
+//                    longitude: parseFloat(pos.coords.longitude),
+//                    showWindow: true,
+//                    title: "My location"
+//                };
+//                $scope.markers.push(newMarker);
 
                 // Save to db
 

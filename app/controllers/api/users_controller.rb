@@ -9,8 +9,27 @@ module Api
     end
 
     def show
-      @users = Advertiser.find(params[:id])
-      respond_with @users
+      @user = User.find(params[:id])
+      respond_with @user
+    end
+
+    # PUT /users/1
+    # PATCH /users/1
+    def update
+      @user = User.find(params[:id])
+
+      respond_to do |format|
+        if @user.update(user_params)
+          format.json { head :no_content }
+        else
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+
+    end
+
+    def user_params
+      params.require(:user).permit(:full_name, :plans, :work, :hobbies, :latitude, :longitude)
     end
 
   end

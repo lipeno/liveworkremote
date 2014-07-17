@@ -14,7 +14,7 @@ PalytteApp::Application.routes.draw do
   end
 
   namespace :api, defaults: {format: 'json'} do
-    resources :users, :only => [:index]
+    resources :users
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

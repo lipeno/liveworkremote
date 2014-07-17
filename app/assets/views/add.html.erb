@@ -1,6 +1,5 @@
 <div class="container">
   <h2>Add your location</h2>
-  <a ng-click="saveCoordinates()" class="button button-icon icon ion-navigate">Save my current location</a>
   <div class="row">
     <div class="col-md-8">
       <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
@@ -8,14 +7,52 @@
         </markers>
       </google-map>
     </div>
-    <div class="col-md-4">
-      {{markers[0].position}}
 
-      HOME - Where are you from and where are you right now?
-      WORK - What work do you do online?
-      EXPERIENCE - Have you worked and travelled before?
-      TRAVEL PLANS - What are your travel plans for this year?
-      HOBBIES - Do you have any hobbies or want to learn anything new on your next trips?
-</div>
+    <div class="col-md-4">
+      <a ng-click="saveData()" class="button button-icon icon ion-navigate">Save My Data</a>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Name</div>
+        <div class="panel-body">
+          <input type="text" ng-model="user.full_name" class="form-control" placeholder="eg. John Smith">
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Location</div>
+        <div class="panel-body">
+          {{markers[0].position}}
+          <button type="button" class="btn btn-default"  ng-click="saveCoordinates()" >Locate Me</button>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Latitude</label>
+            <input type="text" ng-model="user.latitude" disabled class="form-control" placeholder="eg. 45.81">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Longitude</label>
+            <input type="text" ng-model="user.longitude" disabled class="form-control" placeholder="eg. 15.99">
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Work</div>
+        <div class="panel-body">
+          {{work}}
+          <input type="text" ng-model="user.work" class="form-control" placeholder="What work do you do online?">
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Hobbies</div>
+        <div class="panel-body">
+          <input type="text" ng-model="user.hobbies" class="form-control" placeholder="Do you have any hobbies or want to learn anything new on your next trips?">
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Life and travel plans</div>
+        <div class="panel-body">
+          <input type="text" ng-model="user.plans" class="form-control" placeholder="What are your travel plans for this year?">
+
+        </div>
+      </div>
+
+    </div>
     </div>
 </div>

@@ -18,7 +18,7 @@ angular.module('angularApp')
                 latitude: 40.74,
                 longitude: -74.18
             },
-            zoom: 8
+            zoom: 2
         };
 
 
