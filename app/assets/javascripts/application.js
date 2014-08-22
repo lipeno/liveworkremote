@@ -17,5 +17,6 @@
 //=require app/app.js
 //=require app/routes.js
 //=require app/services.js
+//=require app/directives.js
 //=require_tree ./app/main
 //=require_tree ./app/auth

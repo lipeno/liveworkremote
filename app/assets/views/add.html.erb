@@ -23,10 +23,13 @@
 
           <div class="form-group">
             <label for="exampleInputEmail1">Location (latitude, longitude)</label>
-            <input type="text" value="{{user.latitude}}, {{user.longitude}}" disabled class="form-control" placeholder="eg. 45.81">
+            <reverse-geocode lat="{{user.latitude}}" lng="{{user.longitude}}" />
+            <!--<input type="text" value="{{user.latitude}}, {{user.longitude}}" disabled class="form-control" placeholder="eg. 45.81">-->
           </div>
           <button type="button" class="btn btn-default"  ng-click="saveCoordinates()" >Locate Me</button>
           <em>Expires after 30 days.</em>
+
+
         </div>
         <div class="panel-heading">Work</div>
         <div class="panel-body">
