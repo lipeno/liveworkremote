@@ -8,6 +8,8 @@ angular.module('angularApp')
             $scope.$apply(function () {
                 $scope.hobbies = user.hobbies;
                 $scope.full_name = user.full_name;
+                $scope.latitude = user.latitude;
+                $scope.longitude = user.longitude;
                 $scope.work = user.work;
                 $scope.plans = user.plans;
             });

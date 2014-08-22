@@ -23,6 +23,13 @@
         <div class="panel-body">{{full_name}}</div>
       </div>
       <div class="panel panel-default">
+        <div class="panel-heading">Location</div>
+        <div class="panel-body"><reverse-geocode latitude="{{latitude}}" longitude="{{longitude}}" />
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
         <div class="panel-heading">Work</div>
         <div class="panel-body">{{work}}</div>
       </div>
