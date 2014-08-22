@@ -13,6 +13,11 @@ angular.module('angularApp')
                         controller: 'AddCtrl',
                         authenticate: true
                     })
+                    .state('about', {
+                        url: "/about",
+                        templateUrl: '<%= asset_path("about.html") %>',
+                        controller: 'aboutCtrl',
+                    })
                     .state('auth', {
                         url: "/auth",
                         templateUrl: '<%= asset_path("users/auth.html") %>',

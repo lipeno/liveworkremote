@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Add your location</h2>
+  <h1>Add My Location</h1>
   <div class="row">
     <div class="col-md-8">
       <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
@@ -17,18 +17,16 @@
         <div class="panel-heading">Personal</div>
         <div class="panel-body">
             <div class="form-group">
-              <label for="exampleInputEmail1">Name</label>
+              <label for="exampleInputEmail1">Full Name</label>
               <input type="text" ng-model="user.full_name" class="form-control" placeholder="eg. John Smith">
             </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Location (latitude, longitude)</label>
+            <input type="text" value="{{user.latitude}}, {{user.longitude}}" disabled class="form-control" placeholder="eg. 45.81">
+          </div>
           <button type="button" class="btn btn-default"  ng-click="saveCoordinates()" >Locate Me</button>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Location: latitude</label>
-            <input type="text" ng-model="user.latitude" disabled class="form-control" placeholder="eg. 45.81">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Location: longitude</label>
-            <input type="text" ng-model="user.longitude" disabled class="form-control" placeholder="eg. 15.99">
-          </div>
+          <em>Expires after 30 days.</em>
         </div>
         <div class="panel-heading">Work</div>
         <div class="panel-body">

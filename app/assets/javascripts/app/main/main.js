@@ -39,8 +39,8 @@ angular.module('angularApp')
                             latitude: parseFloat($scope.allUsers[i].latitude),
                             longitude: parseFloat($scope.allUsers[i].longitude),
                             showWindow: false,
-                            title: "Marker" + i
-                        }
+                            labelContent: $scope.allUsers[i].full_name
+                        };
 
                         var user = $scope.allUsers[i];
 
