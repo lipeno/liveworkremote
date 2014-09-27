@@ -2,10 +2,13 @@
   <h1>Add My Location</h1>
   <div class="row">
     <div class="col-md-8">
-      <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
-        <markers models="markers" coords="'self'" click="'onClicked'">
-        </markers>
-      </google-map>
+
+      <div class="map-canvas">
+        <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
+          <markers models="markers" coords="'self'" click="'onClicked'">
+          </markers>
+        </google-map>
+      </div>
     </div>
 
     <div class="col-md-4">

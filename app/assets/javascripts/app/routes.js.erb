@@ -16,16 +16,11 @@ angular.module('angularApp')
                     .state('about', {
                         url: "/about",
                         templateUrl: '<%= asset_path("about.html") %>',
-                        controller: 'aboutCtrl',
                     })
                     .state('auth', {
                         url: "/auth",
                         templateUrl: '<%= asset_path("users/auth.html") %>',
                         controller: 'AuthCtrl'
-                    })
-                    .state('landing', {
-                        url: "/landing",
-                        templateUrl: '<%= asset_path("landing.html") %>',
                     })
         })
         .run(function ($rootScope, Session, $state) { // Configure routes
