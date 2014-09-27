@@ -26,6 +26,7 @@
 
   <!-- endbuild -->
   <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Slab:300,400" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css">
 
   <!-- Favicons
 ================================================== -->
@@ -37,43 +38,39 @@
 <!-- Primary Page Layout
 ================================================== -->
 
+
+
 <div id="wrap" class="colorskin-0">
-  <div id="sticker">
-    <header id="header">
 
-      <div  class="container">
-        <div class="four columns">
-          <h2><a href="/">Nomad's map</a></h2>
-        </div>
-
+  <!-- Header -->
+  <header class="main-header">
+    <div class="row">
+      <div class="col-sm-7">
+        <a href="/">Nomad's map</a>
+        <p>A live map and network of digital nomads</p>
+      </div>
+      <div class="col-sm-5">
         <!-- Navigation starts
-          ================================================== -->
+        ================================================== -->
         <nav id="nav-wrap" class="nav-wrap1 twelve columns">
           <ul id="nav">
             <li ng-class="{ current: activePath=='main' }"><a href="/">Browse all</a></li>
             <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
 
             <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
-              <a href="#/add">Add your location</a>
+              <a href="#/add">My Profile & Location</a>
+            </li>
+            <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
+              <a href="#/add">
+                <i class="icon-user"></i> My profile & location
+              </a>
             </li>
             <signout-user></signout-user>
           </ul>
         </nav>
-        <!-- /nav-wrap -->
-
-        <!-- Navigation ends
-          ================================================== -->
-
       </div>
-
-
-      <div id="search-form2">
-        <form action="#" method="get">
-          <input type="text" class="search-text-box2">
-        </form>
-      </div>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <!-- Ui-router view routing -->
   <div ui-view></div>

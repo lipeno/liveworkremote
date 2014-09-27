@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('angularApp')
-    .controller('MainCtrl', function ($scope, $q, GetMyCoordinates, $http) {
+    .controller('MainCtrl', function ($scope, $q, GetMyCoordinates, $http, $rootScope) {
+
+        $scope.makeTextBlurry = true;
+        if ($rootScope.current_user){
+            $scope.makeTextBlurry = false;
+        }
 
         $scope.onMarkerClicked = function (user, marker) {
             // marker.showWindow = true;

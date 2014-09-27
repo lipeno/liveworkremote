@@ -23,6 +23,10 @@ angular.module('angularApp')
                         templateUrl: '<%= asset_path("users/auth.html") %>',
                         controller: 'AuthCtrl'
                     })
+                    .state('landing', {
+                        url: "/landing",
+                        templateUrl: '<%= asset_path("landing.html") %>',
+                    })
         })
         .run(function ($rootScope, Session, $state) { // Configure routes
 
