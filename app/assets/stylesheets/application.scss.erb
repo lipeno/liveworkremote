@@ -538,7 +538,14 @@ i {
 
 map, div[map] {display:block; width: 600px; height: 400px}
 
-.angular-google-map-container { height: 400px; }
+
+.map-canvas{
+    height: 800px; position: relative; overflow: hidden; -webkit-transform: translateZ(0px);
+    .angular-google-map-container {
+        height: 800px;
+        position: relative;
+    }
+}
 
 .marker-labels{
     color: #000;

@@ -20,7 +20,11 @@ angular.module('angularApp')
                 latitude: 40.74,
                 longitude: -74.18
             },
-            zoom: 2
+            zoom: 2,
+            options: {
+                mapTypeControl: false, // Disable changing of map type
+                minZoom: 2 // Maximum zoom out
+            }
         };
 
 

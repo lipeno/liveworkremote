@@ -1,57 +1,45 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-
+<div class="row">
+  <div class="col-md-8">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-autocomplete="result1" details="searchedLocation" options="options1" placeholder="Search For Location"/>
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-primary" ng-click="setCoordinates()">
+                <span class="glyphicon glyphicon-search"></span> Find My Location
+              </button>
+          </span>
     </div>
-  </div>
 
-  <div class="row">
-
-    <div class="col-md-8">
-
-
-      <form id="form" role="form">
-
-        <div class="form-group move-down">
-          <label for="Autocomplete">Find:</label>
-          <input type="text" class="form-control" ng-autocomplete="result1" details="searchedLocation" options="options1" placeholder="Location"/>
-          <span>or <button type="button" class="btn btn-default"  ng-click="setCoordinates()" >Locate Me</button></span>
-        </div>
-
-      </form>
-
+    <div class="map-canvas">
       <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
         <markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">
         </markers>
       </google-map>
-
     </div>
-    <div class="col-md-4">
-
-      <div class="panel panel-default">
-        <div class="panel-heading">Name</div>
-        <div class="panel-body">{{full_name}}</div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Location</div>
-        <div class="panel-body"><reverse-geocode latitude="{{latitude}}" longitude="{{longitude}}" />
-        </div>
-      </div>
-
-
-      <div class="panel panel-default">
-        <div class="panel-heading">Work</div>
-        <div class="panel-body">{{work}}</div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Hobbies</div>
-        <div class="panel-body">{{hobbies}}</div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Life and travel plans</div>
-        <div class="panel-body">{{plans}}</div>
-      </div>
-
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">Name</div>
+      <div class="panel-body">{{full_name}}</div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Location</div>
+      <div class="panel-body">
+        <reverse-geocode latitude="{{latitude}}" longitude="{{longitude}}"/>
+      </div>
     </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">What I do</div>
+      <div class="panel-body">{{work}}</div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Hobbies</div>
+      <div class="panel-body">{{hobbies}}</div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Life and travel plans</div>
+      <div class="panel-body">{{plans}}</div>
+    </div>
+  </div>
 </div>
