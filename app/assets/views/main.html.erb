@@ -1,14 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <em>Select a person by clicking on the map or     <button type="button" class="btn btn-default"  ng-click="setCoordinates()" >Locate Me</button>
-      </em>
 
-    </div></div>
+    </div>
+  </div>
 
   <div class="row">
 
     <div class="col-md-8">
+
+
+      <form id="form" role="form">
+
+        <div class="form-group move-down">
+          <label for="Autocomplete">Find:</label>
+          <input type="text" class="form-control" ng-autocomplete="result1" details="searchedLocation" options="options1" placeholder="Location"/>
+          <span>or <button type="button" class="btn btn-default"  ng-click="setCoordinates()" >Locate Me</button></span>
+        </div>
+
+      </form>
 
       <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
         <markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">

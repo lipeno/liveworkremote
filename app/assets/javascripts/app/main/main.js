@@ -78,4 +78,16 @@ angular.module('angularApp')
             });
         };
 
+        $scope.$watch("searchedLocation", function(location){
+            if (location) {
+                $scope.map = {
+                    center: {
+                        latitude: location.geometry.location.k,
+                        longitude: location.geometry.location.B
+                    },
+                    zoom: 11
+                };
+            }
+        })
+
     });

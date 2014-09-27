@@ -14,6 +14,7 @@
 //=require ./vendor/modules/ui-bootstrap-tpls-0.11.0
 //=require ./vendor/modules/ng-table
 //=require ./vendor/modules/angular-google-maps.min.js
+//=require ./vendor/modules/ngAutocomplete.js
 //=require app/app.js
 //=require app/routes.js
 //=require app/services.js
