@@ -1,37 +1,23 @@
 <div class="container">
   <h1>Add My Location</h1>
-  <div class="row">
-    <div class="col-md-8">
 
-      <div class="map-canvas">
-        <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
-          <markers models="markers" coords="'self'" click="'onClicked'">
-          </markers>
-        </google-map>
-      </div>
+  <div class="row">
+    <div class="col-md-12>
+    <div class="panel-body text-center">
+      <a ng-click="saveData()" class="button button-icon icon ion-navigate">Save My Data</a>
     </div>
 
-    <div class="col-md-4">
-
-      <div class="panel panel-default">
-        <div class="panel-body text-center">      <a ng-click="saveData()" class="button button-icon icon ion-navigate">Save My Data</a>
-        </div>
-
+    <tabset>
+      <tab>
+        <tab-heading>
+          <i class="glyphicon glyphicon-bell"></i> My Profile
+        </tab-heading>
         <div class="panel-heading">Personal</div>
         <div class="panel-body">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Full Name</label>
-              <input type="text" ng-model="user.full_name" class="form-control" placeholder="eg. John Smith">
-            </div>
-
           <div class="form-group">
-            <label for="exampleInputEmail1">Current Location</label>
-            <reverse-geocode latitude="{{user.latitude}}" longitude="{{user.longitude}}" />
-            <!--<input type="text" value="{{user.latitude}}, {{user.longitude}}" disabled class="form-control" placeholder="eg. 45.81">-->
+            <label for="exampleInputEmail1">Full Name</label>
+            <input type="text" ng-model="user.full_name" class="form-control" placeholder="eg. John Smith">
           </div>
-          <button type="button" class="btn btn-default"  ng-click="saveCoordinates()" >Locate Me</button>
-          <em>Expires after 30 days.</em>
-
 
         </div>
         <div class="panel-heading">Work</div>
@@ -47,8 +33,31 @@
         <div class="panel-body">
           <input type="text" ng-model="user.plans" class="form-control" placeholder="What are your travel plans for this year?">
 
-      </div>
+        </div>
+      </tab>
+      <tab>
+        <tab-heading>
+          <i class="glyphicon glyphicon-bell"></i> My Location
+        </tab-heading>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Current Location</label>
+          <reverse-geocode latitude="{{user.latitude}}" longitude="{{user.longitude}}"/>
+          <!--<input type="text" value="{{user.latitude}}, {{user.longitude}}" disabled class="form-control" placeholder="eg. 45.81">-->
+        </div>
 
-    </div>
-    </div>
+        <div class="map-canvas">
+          <button type="button" class="btn btn-default" ng-click="saveCoordinates()">Locate Me</button>
+          <em>Expires after 30 days.</em>
+          <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
+            <markers models="markers" coords="'self'" click="'onClicked'">
+            </markers>
+          </google-map>
+        </div>
+      </tab>
+    </tabset>
+
+
+  </div>
+
+</div>
 </div>
