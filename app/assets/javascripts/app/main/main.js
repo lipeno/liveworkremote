@@ -13,6 +13,7 @@ angular.module('angularApp')
             $scope.$apply(function () {
                 $scope.hobbies = user.hobbies;
                 $scope.full_name = user.full_name;
+                $scope.email = user.email;
                 $scope.latitude = user.latitude;
                 $scope.longitude = user.longitude;
                 $scope.work = user.work;

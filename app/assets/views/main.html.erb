@@ -19,18 +19,15 @@
 
 
       <div class="user-info" ng-class="makeTextBlurry ? 'blur' : ''" ng-click="console.log('hey');">
-        <h2>User profile</h2>
-        <div class="panel panel-default">
-          <div class="panel-heading">Name</div>
-          <div class="panel-body">{{full_name}}</div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">Currently In</div>
-          <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="gravatar" gravatar-src="email" gravatar-size="100">
+          </div>
+          <div class="col-md-9">
+            <h2>{{full_name}}</h2>
             <reverse-geocode latitude="{{latitude}}" longitude="{{longitude}}"/>
           </div>
-        </div>
-
+          </div>
 
         <div class="panel panel-default">
           <div class="panel-heading">What I do</div>

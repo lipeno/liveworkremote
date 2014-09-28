@@ -2,7 +2,8 @@ angular.module('angularApp')
     .directive('reverseGeocode', function () {
         return {
             restrict: 'E',
-            template: '<input type="text" value="{{address}}" disabled class="form-control" placeholder="eg. 3rd Street, New York, US">',
+//            template: '<input type="text" value="{{address}}" disabled class="form-control" placeholder="eg. 3rd Street, New York, US">',
+            template: '{{address}}',
             scope: {
                 latitude: '@',
                 longitude: '@'

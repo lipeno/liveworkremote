@@ -2,8 +2,9 @@
 //=require ./vendor/lodash
 //=require ./vendor/es5-shim.js
 //=require ./vendor/json3.js
-//=require ./vendor/bootstrap
 //=require ./vendor/angular
+//=require ./vendor/bootstrap
+//=require ./vendor/md5
 //=require ./vendor/modules/angular-cookies.js
 //=require ./vendor/modules/angular-sanitize.js
 //=require ./vendor/modules/angular-route.js
@@ -15,6 +16,7 @@
 //=require ./vendor/modules/ng-table
 //=require ./vendor/modules/angular-google-maps.min.js
 //=require ./vendor/modules/ngAutocomplete.js
+//=require ./vendor/modules/angular-gravatar.js
 //=require app/app.js
 //=require app/routes.js
 //=require app/services.js
