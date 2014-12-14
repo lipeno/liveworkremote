@@ -39,38 +39,39 @@
 
 <div id="wrap" class="colorskin-0">
 
-  <!-- Header -->
-  <header class="main-header">
-    <div class="row">
-      <div class="col-sm-7">
-        <div class="header-text">
-          <a href="/#main">Nomad's map</a>
-        </div>
-        <!--<p>A live map and network of digital nomads</p>-->
+  <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <div class="brand-title">
+        <h1>
+          <a href="#">LiveWorkRemote</a>
+        </h1>
+        <h2>Remote jobs and community for remote workers</h2>
       </div>
-      <div class="col-sm-5">
-        <!-- Navigation starts
-        ================================================== -->
-        <nav id="nav-wrap" class="nav-wrap1 twelve columns">
-          <ul id="nav">
-            <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
-            <li ng-class="{ current: activePath=='browse' }"><a href="/">People</a></li>
-            <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
-            <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
-            <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
-              <a href="#/add">My Profile</a>
-            </li>
-            <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
-              <a href="#/add">
-                <i class="icon-user"></i> My profile
-              </a>
-            </li>
-            <signout-user></signout-user>
-          </ul>
-        </nav>
-      </div>
+      <!--<a class="navbar-brand" href="#"></a>-->
     </div>
-  </header>
+    <div class="collapse navbar-collapse" id="navbar-collapse-01">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
+        <li ng-class="{ current: activePath=='browse' }"><a href="/#browse">People</a></li>
+        <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
+        <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
+        <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
+          <a href="#/add">My Profile</a>
+        </li>
+        <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
+          <a href="#/add">
+            <i class="icon-user"></i> My profile
+          </a>
+        </li>
+        <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
+          <signout-user></signout-user>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
 
   <!-- Ui-router view routing -->
   <div ui-view></div>

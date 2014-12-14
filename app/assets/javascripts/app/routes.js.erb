@@ -1,6 +1,6 @@
 angular.module('angularApp')
         .config(function ($urlRouterProvider, $stateProvider) { // Configure routes
-            $urlRouterProvider.otherwise("/browse");
+            $urlRouterProvider.otherwise("/main");
             $stateProvider
                     .state('main', {
                         url: "/main",
