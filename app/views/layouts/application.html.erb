@@ -37,8 +37,6 @@
 <!-- Primary Page Layout
 ================================================== -->
 
-
-
 <div id="wrap" class="colorskin-0">
 
   <!-- Header -->
@@ -46,24 +44,25 @@
     <div class="row">
       <div class="col-sm-7">
         <div class="header-text">
-          <a href="/">Nomad's map</a>
-          <p>A live map and network of digital nomads</p>
+          <a href="/#main">Nomad's map</a>
         </div>
+        <!--<p>A live map and network of digital nomads</p>-->
       </div>
       <div class="col-sm-5">
         <!-- Navigation starts
         ================================================== -->
         <nav id="nav-wrap" class="nav-wrap1 twelve columns">
           <ul id="nav">
-            <li ng-class="{ current: activePath=='main' }"><a href="/">Browse all</a></li>
+            <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
+            <li ng-class="{ current: activePath=='browse' }"><a href="/">People</a></li>
+            <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
             <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
-
             <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
-              <a href="#/add">My Profile & Location</a>
+              <a href="#/add">My Profile</a>
             </li>
             <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
               <a href="#/add">
-                <i class="icon-user"></i> My profile & location
+                <i class="icon-user"></i> My profile
               </a>
             </li>
             <signout-user></signout-user>

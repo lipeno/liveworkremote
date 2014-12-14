@@ -1,17 +1,27 @@
 angular.module('angularApp')
         .config(function ($urlRouterProvider, $stateProvider) { // Configure routes
-            $urlRouterProvider.otherwise("/main");
+            $urlRouterProvider.otherwise("/browse");
             $stateProvider
                     .state('main', {
                         url: "/main",
                         templateUrl: '<%= asset_path("main.html") %>',
                         controller: 'MainCtrl'
                     })
+                    .state('browse', {
+                        url: "/browse",
+                        templateUrl: '<%= asset_path("browse.html") %>',
+                        controller: 'BrowseCtrl'
+                    })
                     .state('add', {
                         url: "/add",
                         templateUrl: '<%= asset_path("add.html") %>',
                         controller: 'AddCtrl',
                         authenticate: true
+                    })
+                    .state('jobs', {
+                        url: "/jobs",
+                        templateUrl: '<%= asset_path("jobs.html") %>',
+                        controller: 'JobsCtrl',
                     })
                     .state('about', {
                         url: "/about",

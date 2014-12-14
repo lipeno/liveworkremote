@@ -50,7 +50,7 @@ angular.module('angularApp')
                     });
                 };
 
-                scope.$watchCollection('[latitude, longitude]', function(newValues, oldValues){
+                scope.$watch('user', function(newValues, oldValues){
                     geocodeToAddress();
                 });
             }

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularApp')
-    .controller('MainCtrl', function ($scope, $q, GetMyCoordinates, $http, $rootScope) {
+    .controller('BrowseCtrl', function ($scope, $q, GetMyCoordinates, $http, $rootScope) {
 
         $scope.makeTextBlurry = true;
         if ($rootScope.current_user){
