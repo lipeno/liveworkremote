@@ -11,24 +11,24 @@
           <input type="text" class="form-control" ng-autocomplete="result1" details="searchedLocation" options="options1" placeholder="Search For Location"/>
           <span class="input-group-btn">
               <button type="button" class="btn btn-primary" ng-click="setCoordinates()">
-                <span class="fa fa-location-arrow"></span> Find My Location
+                <span class="fa fa-location-arrow"></span> Find My Current Location
               </button>
           </span>
         </div>
       </div>
 
 
-      <div class="user-info" ng-class="makeTextBlurry ? 'blur' : ''" ng-click="console.log('hey');">
+      <div class="user-info" ng-click="console.log('hey');">
         <div class="row">
           <div class="col-md-4">
             <img class="gravatar" gravatar-src="user.email" gravatar-size="100">
           </div>
           <div class="col-md-8">
-            <h2>{{user.full_name}}</h2>
-            {{address}}
+              <h2>{{user.full_name}}</h2>
+              {{address}}
           </div>
-          </div>
-
+        </div>
+        <br>
         <div class="panel panel-default">
           <div class="panel-heading">What I Do</div>
           <div class="panel-body">{{user.work}}</div>
@@ -39,9 +39,17 @@
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">Contact</div>
-          <div class="panel-body">Facebook:<br>Email:<br>Twitter<br>Linkedin</div>
+          <div ng-if="!makeTextBlurry">
+            <div class="panel-body">Facebook:<br>Email:<br>Twitter<br>Linkedin</div>
+            </div>
+          <div ng-if="makeTextBlurry">
+            <div class="panel-body"><a href="#/add"><i class="icon-user"></i>Sign up to contact this person!</a></div>
+          </div>
         </div>
 
       </div>
 
+
     </div>
+
+

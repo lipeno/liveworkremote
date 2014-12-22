@@ -18,36 +18,26 @@
     </div>
   </div>
 </div>
-  <table class="table">
+
+
+  <table st-table="jobsCollection" class="table table-striped">
     <thead>
+
     <tr>
-      <th>Company</th>
-      <th>Role</th>
-      <th>Date</th>
+      <th st-sort="company">Company</th>
+      <th st-sort="title">Title</th>
+      <th st-sort="published_at">Published</th>
+    </tr>
+    <tr>
+      <th colspan="5"><input st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
     </tr>
     </thead>
     <tbody>
-    <tr class="active">
-      <td>Monetate</td>
-      <td>Affable, Organized, and Excellent Rails Developer</td>
-      <td>04/07/2014</td>
+    <tr ng-repeat="row in jobsCollection">
+        <td>{{row.company}}</td>
+        <td><a ng-href="{{row.url}}">{{row.title}}</a></td>
+        <td>{{row.published_at | date:'MMMM d'}}</td>
     </tr>
-    <tr class="success">
-      <td>Monetate</td>
-      <td>Affable, Organized, and Excellent Rails Developer</td>
-      <td>04/07/2014</td>
-    </tr>
-    <tr class="active">
-      <td>Monetate</td>
-      <td>Affable, Organized, and Excellent Rails Developer</td>
-      <td>04/07/2014</td>
-    </tr>
-    <tr class="active">
-      <td>Monetate</td>
-      <td>Affable, Organized, and Excellent Rails Developer</td>
-      <td>04/07/2014</td>
-    </tr>
-
     </tbody>
   </table>
 </div>

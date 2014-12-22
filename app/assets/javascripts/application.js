@@ -17,6 +17,7 @@
 //=require ./vendor/modules/angular-google-maps.min.js
 //=require ./vendor/modules/ngAutocomplete.js
 //=require ./vendor/modules/angular-gravatar.js
+//=require ./vendor/modules/smart-table.min.js
 //=require app/app.js
 //=require app/routes.js
 //=require app/services.js

@@ -15,8 +15,9 @@
   <meta content="<%= current_user.to_json %>" name="<%= :current_user %>"/>
 
   <meta charset="utf-8">
-  <title>Nomad's map</title>
+  <title>Live Work Remote</title>
   <meta name="description" content="">
+  <meta name="keywords" content="remote work, work remote, remote jobs, remote work jobs, remote job opportunities, location independent jobs, digital nomad jobs">
   <meta name="author" content="">
 
   <!-- Mobile Specific Metas
@@ -34,60 +35,54 @@
 </head>
 <body ng-app="angularApp">
 
-<!-- Primary Page Layout
-================================================== -->
+<nav class="navbar navbar-inverse navbar-embossed navbar-lg" id="navbar-main" role="navigation">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+    <span class="sr-only">Toggle navigation</span>
+  </button>
+  <div class="brand-title">
+    <h1>
+      <a href="#">LiveWorkRemote</a>
+    </h1>
+    <h2>Remote jobs and community for remote workers</h2>
+  </div>
+  <!--<a class="navbar-brand" href="#"></a>-->
+</div>
+<div class="collapse navbar-collapse" id="navbar-collapse-01">
+  <ul class="nav navbar-nav navbar-right">
+    <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
+    <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
+    <li ng-class="{ current: activePath=='browse' }"><a href="/#browse">People</a></li>
+    <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Places</a></li>
+    <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
+    <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
+      <a href="#/add">My Profile</a>
+    </li>
+    <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
+      <a href="#/add"><i class="icon-user"></i> My profile</a>
+    </li>
+    <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
+      <signout-user></signout-user>
+    </li>
+  </ul>
+</div><!-- /.navbar-collapse -->
+</nav>
 
-<div id="wrap" class="colorskin-0">
-
-  <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-      <div class="brand-title">
-        <h1>
-          <a href="#">LiveWorkRemote</a>
-        </h1>
-        <h2>Remote jobs and community for remote workers</h2>
-      </div>
-      <!--<a class="navbar-brand" href="#"></a>-->
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse-01">
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
-        <li ng-class="{ current: activePath=='browse' }"><a href="/#browse">People</a></li>
-        <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
-        <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
-        <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
-          <a href="#/add">My Profile</a>
-        </li>
-        <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
-          <a href="#/add">
-            <i class="icon-user"></i> My profile
-          </a>
-        </li>
-        <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
-          <signout-user></signout-user>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </nav>
-
-  <!-- Ui-router view routing -->
-  <div ui-view></div>
+<!-- Ui-router view routing -->
+<div ui-view></div>
 
 
-  <footer id="footer">
-    <section class="footbot">
-      <div class="container">
-        <div class="footer-navi">© 2014 <a href="">Nomad's map</a> All Rights Reserved.</div>
-      </div>
-      <!-- footer-navigation /end -->
-    </section>
-    <!-- end-footbot -->
-  </footer>
-  <!-- end-footer -->
-  <span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>
+<footer id="footer">
+<section class="footbot">
+  <div class="container">
+    <div class="footer-navi">© 2014 <a href="">Nomad's map</a> All Rights Reserved.</div>
+  </div>
+  <!-- footer-navigation /end -->
+</section>
+<!-- end-footbot -->
+</footer>
+<!-- end-footer -->
+<span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>
 
 </body>
 </html>

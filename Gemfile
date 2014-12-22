@@ -12,10 +12,18 @@ gem 'coffee-rails', '~> 4.0.0'
 gem "rspec-rails", "~> 2.14.0"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'flat-ui-sass', github: 'wingrunr21/flat-ui-sass'
+gem 'httparty'
+gem 'jbuilder', '~> 1.2'
 
 group :development do
-  gem "better_errors"
+  gem 'pry'  # Need to include this in gemfile to get automatic require "pry" in each file
+  gem 'pry-byebug'
+  gem 'pry-rescue'
+  gem 'binding_of_caller' # to enable the REPL and local/instance variable inspection for better_errors gem
+  gem "better_errors" # Errors screen which pops up in browser and shows details
 end
+
+gem 'quiet_assets', group: :development
 
 group :production do
   gem 'unicorn'   # Use unicorn as the app server
