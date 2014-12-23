@@ -1,7 +1,24 @@
-liveworkremote da bude affiliate od copass https://copass.org/map/cospaces_infos.json?slug=andrej-dragisic ili uzeti coworking visa json http://coworkingvisamap.com/getjson.php
+<!--liveworkremote da bude affiliate od copass https://copass.org/map/cospaces_infos.json?slug=andrej-dragisic ili uzeti coworking visa json http://coworkingvisamap.com/getjson.php-->
 
-<h4>Workspace type:</h4>
-<div class="btn-group btn-toggle">
-  <button class="btn btn-default">Coworking spaces</button>
-  <button class="btn btn-primary active">Coffeeshops</button>
+<div class="find-location">
+  <div class="input-group">
+    <input type="text" class="form-control" ng-autocomplete="result1" details="searchedLocation" options="options1" placeholder="Search For Location"/>
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-primary" ng-click="setCoordinates()">
+                <span class="fa fa-location-arrow"></span> Find My Current Location
+              </button>
+          </span>
+  </div>
 </div>
+
+<div class="filter-type">
+  <div class="btn-group btn-toggle">
+    <button class="btn btn-default">Coworking spaces</button>
+    <button class="btn btn-primary active">Coffee shops</button>
+  </div>
+</div>
+
+<google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
+  <markers ng-if="mapLoaded" models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">
+  </markers>
+</google-map>
