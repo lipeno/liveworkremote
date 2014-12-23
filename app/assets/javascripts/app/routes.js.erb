@@ -21,7 +21,11 @@ angular.module('angularApp')
                     .state('jobs', {
                         url: "/jobs",
                         templateUrl: '<%= asset_path("jobs.html") %>',
-                        controller: 'JobsCtrl',
+                        controller: 'JobsCtrl'
+                    })
+                    .state('places', {
+                        url: "/places",
+                        templateUrl: '<%= asset_path("places.html") %>',
                     })
                     .state('about', {
                         url: "/about",

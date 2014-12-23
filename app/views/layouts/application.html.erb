@@ -35,16 +35,25 @@
 </head>
 <body ng-app="angularApp">
 
-<nav class="navbar navbar-inverse navbar-embossed navbar-lg" id="navbar-main" role="navigation">
+<nav class="navbar navbar-embossed navbar-lg" id="navbar-main" role="navigation">
 <div class="navbar-header">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
     <span class="sr-only">Toggle navigation</span>
   </button>
-  <div class="brand-title">
-    <h1>
-      <a href="#">LiveWorkRemote</a>
-    </h1>
-    <h2>Remote jobs and community for remote workers</h2>
+  <div class="row">
+    <div class="col-md-2">
+      <a href="#"><img src="<%= asset_path 'logo.png' %>"></a>
+
+    </div>
+    <div class="col-md-10">
+      <div class="brand-title">
+        <h1>
+          <a href="#">Live Work Remote</a>
+        </h1>
+        <h2>Remote jobs and community for remote workers</h2>
+      </div>
+
+    </div>
   </div>
   <!--<a class="navbar-brand" href="#"></a>-->
 </div>
@@ -53,7 +62,7 @@
     <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
     <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
     <li ng-class="{ current: activePath=='browse' }"><a href="/#browse">People</a></li>
-    <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Places</a></li>
+    <li ng-class="{ current: activePath=='places' }"><a href="/#places">Places</a></li>
     <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
     <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
       <a href="#/add">My Profile</a>
