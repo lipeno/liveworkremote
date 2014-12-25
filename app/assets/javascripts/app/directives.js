@@ -1,5 +1,5 @@
 angular.module('angularApp')
-    .directive('reverseGeocode', function () {
+    .directive('myReverseGeocode', function () {
         return {
             restrict: 'E',
 //            template: '<input type="text" value="{{address}}" disabled class="form-control" placeholder="eg. 3rd Street, New York, US">',

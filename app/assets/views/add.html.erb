@@ -1,63 +1,74 @@
 <div class="container">
   <h1>Add My Location</h1>
-
   <div class="row">
-    <div class="col-md-12>
-    <div class="panel-body text-center">
-      <a ng-click="saveData()" class="button button-icon icon ion-navigate">Save My Data</a>
-    </div>
+    <div class="col-md-6">
+      <div class="map_canvas_container">
+      <div class="map_canvas">
 
-    <tabset>
-      <tab>
-        <tab-heading>
-          <i class="glyphicon glyphicon-bell"></i> My Profile
-        </tab-heading>
-        <div class="panel-heading">Personal</div>
+        <ui-gmap-google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
+          <ui-gmap-markers models="markers" coords="'self'" click="'onClicked'">
+          </ui-gmap-markers>
+        </ui-gmap-google-map>
+      </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a class="btn btn-primary" ng-click="saveData()"><i class="fa fa-floppy-o"></i> Save My Data</a>
+        </div>
+    </div>
+      <br>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Location</div>
+        <div class="panel-body">
+          <button type="button" class="btn btn-default" ng-click="saveCoordinates()"><span class="fa fa-location-arrow"></span> Locate Me</button>
+          <!--<em>Expires after 30 days.</em>-->
+            <label for="exampleInputEmail1">Current Location: </label>
+            <my-reverse-geocode ng-if="user" latitude="{{user.latitude}}" longitude="{{user.longitude}}"/>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading">First and Last Name</div>
         <div class="panel-body">
           <div class="form-group">
-            <label for="exampleInputEmail1">Full Name</label>
             <input type="text" ng-model="user.full_name" class="form-control" placeholder="eg. John Smith">
           </div>
-
         </div>
+      </div>
+
+      <div class="panel panel-default">
         <div class="panel-heading">Work</div>
         <div class="panel-body">
           {{work}}
           <input type="text" ng-model="user.work" class="form-control" placeholder="What work do you do online?">
         </div>
-        <div class="panel-heading">Hobbies</div>
-        <div class="panel-body">
-          <input type="text" ng-model="user.hobbies" class="form-control" placeholder="Do you have any hobbies or want to learn anything new on your next trips?">
-        </div>
-        <div class="panel-heading">Life and travel plans</div>
-        <div class="panel-body">
-          <input type="text" ng-model="user.plans" class="form-control" placeholder="What are your travel plans for this year?">
+      </div>
 
-        </div>
-      </tab>
-      <tab>
-        <tab-heading>
-          <i class="glyphicon glyphicon-bell"></i> My Location
-        </tab-heading>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Current Location</label>
-          <reverse-geocode latitude="{{user.latitude}}" longitude="{{user.longitude}}"/>
-          <!--<input type="text" value="{{user.latitude}}, {{user.longitude}}" disabled class="form-control" placeholder="eg. 45.81">-->
+    <div class="panel panel-default">
+      <div class="panel-heading">Hobbies</div>
+      <div class="panel-body">
+        <input type="text" ng-model="user.hobbies" class="form-control" placeholder="Do you have any hobbies or want to learn anything new on your next trips?">
+      </div>
+    </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Life and travel plans</div>
+          <div class="panel-body">
+            <input type="text" ng-model="user.plans" class="form-control" placeholder="What are your travel plans for this year?">
+          </div>
         </div>
 
-        <div class="map-canvas">
-          <button type="button" class="btn btn-default" ng-click="saveCoordinates()">Locate Me</button>
-          <em>Expires after 30 days.</em>
-          <google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
-            <markers models="markers" coords="'self'" click="'onClicked'">
-            </markers>
-          </google-map>
-        </div>
-      </tab>
-    </tabset>
+</div>
+
+    </div>
 
 
-  </div>
+</div>
 
 </div>
 </div>

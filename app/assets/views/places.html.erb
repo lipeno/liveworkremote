@@ -1,4 +1,4 @@
-<!--liveworkremote da bude affiliate od copass https://copass.org/map/cospaces_infos.json?slug=andrej-dragisic ili uzeti coworking visa json http://coworkingvisamap.com/getjson.php-->
+<!--liveworkremote da bude affiliate od copass https://copass.org/map/cospaces_infos.json?slug=andrej-dragisic -->
 
 <div class="find-location">
   <div class="input-group">
@@ -13,12 +13,38 @@
 
 <div class="filter-type">
   <div class="btn-group btn-toggle">
-    <button class="btn btn-default">Coworking spaces</button>
-    <button class="btn btn-primary active">Coffee shops</button>
+    <button class="btn btn-default active">Co-working spaces</button>
+    <button tooltip="blabla" class="btn btn-primary disabled">Coffee shops</button>
   </div>
 </div>
 
-<google-map ng-show="mapLoaded" center="map.center" draggable="true" options="map.options" zoom="map.zoom">
-  <markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">
-  </markers>
-</google-map>
+<div class="row">
+  <div class="col-md-8 nopadding">
+
+    <ui-gmap-google-map center="map.center" draggable="true" options="map.options" zoom="map.zoom">
+      <ui-gmap-markers models="markers" labelClass="marker-labels" coords="'self'" doCluster="true" click="'onClicked'">
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
+
+    </div>
+  <div class="col-md-4 nopadding">
+    <div class="user-info">
+      <div ng-if="!place">
+        Click on a marker on the map to see more details.
+      </div>
+      <div ng-if="place">
+        <br>
+        <h3>{{place.name}}</h3>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">Address</div>
+          <div class="panel-body">{{place.address}}</div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">Website</div>
+          <div class="panel-body"><a href="{{place.website}}">{{place.website}}</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

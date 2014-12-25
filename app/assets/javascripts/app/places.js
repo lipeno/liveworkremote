@@ -3,7 +3,6 @@
 angular.module('angularApp')
     .controller('PlacesCtrl', function ($scope, $q, GetMyCoordinates, $http, $rootScope) {
 
-        $scope.mapLoaded = false;
         $scope.makeTextBlurry = true;
         if ($rootScope.current_user){
             $scope.makeTextBlurry = false;
@@ -52,16 +51,16 @@ angular.module('angularApp')
             return deferred.promise;
         };
 
-        $scope.onMarkerClicked = function (user, marker) {
-            $scope.geocodeToAddress(user.latitude, user.longitude).then(
-                function(data) {
-                    $scope.address = data;
-                },
-                function(data) {
-                    $scope.address = data;
-                }
-            );
-            $scope.user = user;
+        $scope.onMarkerClicked = function (place, marker) {
+//            $scope.geocodeToAddress(place.latitude, place.longitude).then(
+//                function(data) {
+//                    $scope.address = data;
+//                },
+//                function(data) {
+//                    $scope.address = data;
+//                }
+//            );
+            $scope.place = place;
             $scope.$apply(); //this triggers a $digest
         };
 
@@ -75,11 +74,9 @@ angular.module('angularApp')
                 mapTypeControl: false, // Disable changing of map type
                 minZoom: 3, // Maximum zoom out
                 scrollwheel: false // Disable zooming with scroll
-            }
+            },
+            refresh: {}
         };
-
-
-        $scope.allUsers = [];
 
 
         var url = "/api/places.json";
@@ -100,17 +97,16 @@ angular.module('angularApp')
                             labelContent: $scope.allCoworkingSpaces[i].name
                         };
 
-                        var user = $scope.allCoworkingSpaces[i];
+                        var place = $scope.allCoworkingSpaces[i];
 
                         newMarker.onClicked = function () {
-                            $scope.onMarkerClicked(user, newMarker);
+                            $scope.onMarkerClicked(place, newMarker);
                         };
 
                         $scope.markers.push(newMarker);
 
                     })(i);
 
-                    $scope.mapLoaded = true;
                 }
             }).
             error(function (data, status, headers, config) {

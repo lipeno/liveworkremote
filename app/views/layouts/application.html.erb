@@ -42,13 +42,13 @@
   </button>
   <div class="row">
     <div class="col-md-2">
-      <a href="#"><img src="<%= asset_path 'logo.png' %>"></a>
+      <a href="#main"><img src="<%= asset_path 'logo.png' %>"></a>
 
     </div>
     <div class="col-md-10">
       <div class="brand-title">
         <h1>
-          <a href="#">Live Work Remote</a>
+          <a href="#main">Live Work Remote</a>
         </h1>
         <h2>Remote jobs and community for remote workers</h2>
       </div>
@@ -59,16 +59,17 @@
 </div>
 <div class="collapse navbar-collapse" id="navbar-collapse-01">
   <ul class="nav navbar-nav navbar-right">
-    <li ng-class="{ current: activePath=='main' }"><a href="/#main">Main</a></li>
-    <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs">Jobs</a></li>
-    <li ng-class="{ current: activePath=='browse' }"><a href="/#browse">People</a></li>
-    <li ng-class="{ current: activePath=='places' }"><a href="/#places">Places</a></li>
-    <li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>
+    <li ng-class="{ current: activePath=='main' }"><a href="/#main"><i class="fa fa-home"></i> Main</a></li>
+    <li ng-class="{ current: activePath=='jobs' }"><a href="/#jobs"><i class="fa fa-suitcase"></i> Jobs</a></li>
+    <li ng-class="{ current: activePath=='browse' }"><a href="/#browse"><i class="fa fa-group"></i> People</a></li>
+    <li ng-class="{ current: activePath=='places' }"><a href="/#places"><i class="fa fa-compass"></i> Places</a></li>
+    <!--<li ng-class="{ current: activePath=='main' }"><a href="/#about">About</a></li>-->
+    <!--<li ng-class="{ current: activePath=='main' }"><a href="/#about">Resources</a></li>-->
     <li ng-class="{ current: activePath=='add' }" ng-hide="current_user">
       <a href="#/add">My Profile</a>
     </li>
     <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
-      <a href="#/add"><i class="icon-user"></i> My profile</a>
+      <a href="#/add"><i class="icon-user"></i><i class="fa fa-male"></i> My profile</a>
     </li>
     <li ng-class="{ current: activePath=='admin' }" ng-show="current_user">
       <signout-user></signout-user>

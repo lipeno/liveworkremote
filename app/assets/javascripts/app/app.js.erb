@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularApp', ['smart-table', 'google-maps', 'ngAutocomplete', 'ui.router','restangular', 'infinite-scroll', "ui.bootstrap.tpls", 'ui.bootstrap.pagination', 'ui.bootstrap.tabs', 'ui.gravatar'])
+angular.module('angularApp', ['smart-table', 'uiGmapgoogle-maps', 'ngAutocomplete', 'ui.router','restangular', 'infinite-scroll', "ui.bootstrap.tpls", 'ui.bootstrap.pagination', 'ui.bootstrap.tabs', 'ui.gravatar', 'ui.bootstrap.tooltip'])
     .config(function(RestangularProvider) { // Configure Restangular
         RestangularProvider.setBaseUrl('/api');
         RestangularProvider.setMethodOverriders(["put", "patch"]);
