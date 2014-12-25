@@ -33,7 +33,7 @@ angular.module('angularApp')
                         templateUrl: '<%= asset_path("about.html") %>',
                     })
                     .state('auth', {
-                        url: "/auth",
+                        url: "/auth/:type",
                         templateUrl: '<%= asset_path("users/auth.html") %>',
                         controller: 'AuthCtrl'
                     })
@@ -49,7 +49,7 @@ angular.module('angularApp')
             $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
                 if (toState.authenticate && !Session.isAuthorized()){ // If user need to be registered
                     // User isn’t authenticated
-                    $state.transitionTo("auth");
+                    $state.transitionTo("auth", {type: "signup"});
                     event.preventDefault();
                 }
             });

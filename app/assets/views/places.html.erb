@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<google-map center="map.center" draggable="true" options=map.options zoom="map.zoom">
-  <markers ng-if="mapLoaded" models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">
+<google-map ng-show="mapLoaded" center="map.center" draggable="true" options="map.options" zoom="map.zoom">
+  <markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">
   </markers>
 </google-map>
