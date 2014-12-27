@@ -6,6 +6,7 @@ angular.module('angularApp')
             var userId = userData.data.id;
             Restangular.one('users', userId).get().then(function(user) {
                 $scope.user = user;
+                $scope.addMarker($scope.user.latitude, $scope.user.longitude);
             });
         });
 
@@ -45,26 +46,32 @@ angular.module('angularApp')
             $scope.setCoordinates();
             GetMyCoordinates().then(function success(data) {
                 var pos = data;
+                var offset = ((Math.random() > 0.5 ? 0.001 : -0.009) + Math.random() * 0.008);
+                var lat = parseFloat(pos.coords.latitude) + offset;
+                var long = parseFloat(pos.coords.longitude);
 
-                if ($scope.user){
-                        $scope.user.latitude = parseFloat(pos.coords.latitude);
-                        $scope.user.longitude = parseFloat(pos.coords.longitude);
+                if ($scope.user) {
+                    // Add offset for anonymization o user's location
+                    $scope.user.latitude = lat;
+                    $scope.user.longitude = long;
                 }
-                                var newMarker = {
-                    id: 1,
-                    latitude: parseFloat(pos.coords.latitude),
-                    longitude: parseFloat(pos.coords.longitude),
-                    showWindow: true,
-                    title: "My location"
-                };
-                $scope.markers[0] = newMarker;
-
-                // Save to db
+                $scope.addMarker(lat, long);
 
                 console.log(data);
             }, function error(msg) {
                 console.error(msg);
             });
+        };
+
+        $scope.addMarker = function(lat, long) {
+            var newMarker = {
+                id: 1,
+                latitude: lat,
+                longitude: long,
+                showWindow: true,
+                title: "My location"
+            };
+            $scope.markers[0] = newMarker;
         };
 
         $scope.setCoordinates();

@@ -24,10 +24,21 @@
       <div class="panel panel-default">
         <div class="panel-heading">Location</div>
         <div class="panel-body">
-          <button type="button" class="btn btn-default" ng-click="saveCoordinates()"><span class="fa fa-location-arrow"></span> Locate Me</button>
-          <!--<em>Expires after 30 days.</em>-->
-            <label for="exampleInputEmail1">Current Location: </label>
+          <div>
+            <button type="button" class="btn btn-default" ng-click="saveCoordinates()">
+              <span class="fa fa-location-arrow"></span> Locate Me
+            </button>
+            <label ng-if="user" for="exampleInputEmail1">Current Location: </label>
             <my-reverse-geocode ng-if="user" latitude="{{user.latitude}}" longitude="{{user.longitude}}"/>
+
+            </div>
+
+
+          <em>
+            Your coordinates are anonymized to protect your privacy.
+
+          </em>
+
         </div>
       </div>
 

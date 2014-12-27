@@ -130,12 +130,13 @@ angular.module('angularApp')
             });
         };
 
+        // Triggered after doing a search for a city inside a google map
         $scope.$watch("searchedLocation", function(location){
             if (location) {
                 $scope.map = {
                     center: {
                         latitude: location.geometry.location.k,
-                        longitude: location.geometry.location.B
+                        longitude: location.geometry.location.D
                     },
                     zoom: 11
                 };

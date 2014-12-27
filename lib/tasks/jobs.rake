@@ -11,7 +11,12 @@ namespace :jobs do
         response = HTTParty.get(url)
         response["jobs"].each do |retrieved_job|
           new_job = Job.new(provider:"angellist", provider_id: retrieved_job["id"], description: retrieved_job["description"], title: retrieved_job["title"], company: retrieved_job["startup"]["name"], url: retrieved_job["angellist_url"], published_at: retrieved_job["updated_at"])
-          new_job.save
+          puts "Importing: " + new_job.inspect
+          if new_job.save
+            puts "Succeeded!"
+          else
+            puts "Failed!"
+          end
         end
       end
     end

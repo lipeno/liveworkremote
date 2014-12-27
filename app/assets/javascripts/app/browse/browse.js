@@ -142,7 +142,7 @@ angular.module('angularApp')
                 $scope.map = {
                     center: {
                         latitude: location.geometry.location.k,
-                        longitude: location.geometry.location.B
+                        longitude: location.geometry.location.D
                     },
                     zoom: 11
                 };
