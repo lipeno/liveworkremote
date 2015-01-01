@@ -30,15 +30,58 @@
           <div class="panel-heading">What I Like</div>
           <div class="panel-body">{{user.hobbies}} {{user.plans}}</div>
         </div>
+
+
         <div class="panel panel-default">
           <div class="panel-heading">Contact</div>
-          <div ng-if="!makeTextBlurry">
-            <div class="panel-body">Facebook:<br>Email:<br>Twitter<br>Linkedin</div>
-          </div>
-          <div ng-if="makeTextBlurry">
-            <div class="panel-body"><a href="#/add"><i class="icon-user"></i>Sign up to contact this person!</a></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-sm-2">
+                <i class="fa fa-envelope fa-2x"></i>
+              </div>
+              <div class="col-sm-10">
+                <a ng-href="mailto:{{user.email}}">{{user.email}}</a>
+              </div>
+            </div>
+            <div class="row" ng-if="user.contact_facebook">
+              <div class="col-sm-2">
+                <i class="fa fa-facebook fa-2x"></i>
+              </div>
+              <div class="col-sm-10">
+                <a ng-href="{{user.contact_facebook}}">{{user.contact_facebook}}</a>
+              </div>
+            </div>
+
+            <div class="row" ng-if="user.contact_linkedin">
+              <div class="col-sm-2">
+                <i class="fa fa-linkedin fa-2x"></i>
+              </div>
+              <div class="col-sm-10">
+                <a ng-href="{{user.contact_linkedin}}">{{user.contact_linkedin}}</a>
+              </div>
+            </div>
+
+            <div class="row" ng-if="user.contact_twitter">
+              <div class="col-sm-2">
+                <i class="fa fa-twitter fa-2x"></i>
+              </div>
+              <div class="col-sm-10">
+                <a ng-href="{{user.contact_twitter}}">{{user.contact_twitter}}</a>
+              </div>
+            </div>
+
+            <div class="row" ng-if="user.contact_web">
+              <div class="col-sm-2">
+                <i class="fa fa-building fa-2x"></i>
+              </div>
+              <div class="col-sm-10">
+                <a ng-href="{{user.contact_web}}">{{user.contact_web}}</a>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
       </div>
 
 

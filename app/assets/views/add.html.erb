@@ -53,7 +53,7 @@
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading">Work</div>
+        <div class="panel-heading">What I do</div>
         <div class="panel-body">
           {{work}}
           <input type="text" ng-model="user.work" class="form-control" placeholder="What work do you do online?">
@@ -61,11 +61,47 @@
       </div>
 
     <div class="panel panel-default">
-      <div class="panel-heading">Hobbies and Travel Plans</div>
+      <div class="panel-heading">What I like</div>
       <div class="panel-body">
         <input type="text" ng-model="user.hobbies" class="form-control" placeholder="Do you have any hobbies or want to learn anything new on your next trips? What are your travel plans for this year?">
       </div>
     </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Contact</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="col-sm-1 control-label"><i class="fa fa-envelope fa-2x"></i></label>
+            <div class="col-sm-11">
+              <input type="text" ng-model="user.email" disabled class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-1 control-label"><i class="fa fa-facebook fa-2x"></i></label>
+            <div class="col-sm-11">
+              <input type="text" ng-model="user.contact_facebook" class="form-control" placeholder="Facebook URL">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-1 control-label"><i class="fa fa-twitter fa-2x"></i></label>
+            <div class="col-sm-11">
+              <input type="text" ng-model="user.contact_twitter" class="form-control" placeholder="Twitter URL">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-1 control-label"><i class="fa fa-linkedin fa-2x"></i></label>
+            <div class="col-sm-11">
+              <input type="text" ng-model="user.contact_linkedin" class="form-control" placeholder="Linkedin URL">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-1 control-label"><i class="fa fa-building fa-2x"></i></label>
+            <div class="col-sm-11">
+              <input type="text" ng-model="user.contact_web" class="form-control" placeholder="Web site URL">
+            </div>
+          </div>
+        </div>
+      </div>
 
 </div>
 
