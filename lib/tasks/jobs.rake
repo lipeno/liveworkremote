@@ -1,5 +1,11 @@
 namespace :jobs do
   namespace :import do
+    desc 'This imports jobs from all sites'
+    task :all => :environment do
+      puts 'rake: Importing all jobs'
+      Rake::Task["jobs:import:angellist"].execute
+      puts 'rake: Done'
+    end
     desc "AngelList"
     task :angellist => :environment do
       url = 'https://api.angel.co/1/search?query=remote&type=LocationTag'
