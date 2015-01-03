@@ -3,16 +3,14 @@ xml.rss version: "2.0" do
   xml.channel do
     xml.title "Remote Jobs"
     xml.description "LiveWorkRemote Jobs"
-    xml.link api_jobs_url
+    xml.link "http://www.liveworkremote.com"
 
     @jobs.each do |job|
       xml.item do
         xml.title job.title
-        xml.company job.company
-        xml.description job.description
+        xml.description job.company
         xml.pubDate job.published_at.to_s(:rfc822)
-        xml.link api_job_url(job)
-        xml.guid api_job_url(job)
+        xml.link job.url
       end
     end
   end
