@@ -13,6 +13,7 @@ gem "rspec-rails", "~> 2.14.0"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'httparty'
 gem 'jbuilder', '~> 1.2'
+gem 'mailchimp-api'
 
 group :development do
   gem 'pry'  # Need to include this in gemfile to get automatic require "pry" in each file

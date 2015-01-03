@@ -17,6 +17,7 @@ PalytteApp::Application.routes.draw do
     resources :users
     resources :jobs
     resources :places
+    post "/newsletter/subscribe", :controller => "newsletter", :action => "subscribe"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

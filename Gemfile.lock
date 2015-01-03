@@ -58,6 +58,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    excon (0.41.0)
     execjs (2.0.2)
     hike (1.2.3)
     httparty (0.13.3)
@@ -73,6 +74,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailchimp-api (2.0.6)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.3.3)
@@ -176,6 +180,7 @@ DEPENDENCIES
   devise (= 3.0.1)
   httparty
   jbuilder (~> 1.2)
+  mailchimp-api
   ngmin-rails
   pg
   pry
