@@ -1,10 +1,14 @@
 <div class="row">
 <div class="col-md-8 nopadding">
-  <ui-gmap-google-map center="map.center" draggable="true" options="map.options" zoom="map.zoom">
-    <ui-gmap-markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" click="'onClicked'">
-    <!--<ui-gmap-markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">-->
-    </ui-gmap-markers>
-  </ui-gmap-google-map>
+  <div class="browse-container google-map-canvas-container">
+    <div class="google-map-canvas">
+      <ui-gmap-google-map center="map.center" draggable="true" options="map.options" zoom="map.zoom">
+        <ui-gmap-markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" click="'onClicked'">
+        <!--<ui-gmap-markers models="markers" labelContent="'title'" labelClass="marker-labels" coords="'self'" doCluster=true click="'onClicked'">-->
+        </ui-gmap-markers>
+      </ui-gmap-google-map>
+      </div>
+    </div>
   </div>
   <div class="col-md-4 nopadding">
     <div class="user-info" ng-click="console.log('hey');">
