@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularApp')
-    .controller('AddCtrl', function ($scope, GetMyCoordinates, Restangular, Session) {
+    .controller('AddCtrl', function ($scope, GetMyCoordinates, Restangular, Session, $timeout) {
         Session.requestCurrentUser().then(function(userData) {
             var userId = userData.data.id;
             Restangular.one('users', userId).get().then(function(user) {
@@ -19,6 +19,20 @@ angular.module('angularApp')
             },
             zoom: 8
         };
+
+        var savePromise = null;
+        $scope.$watch('user', function(newVal, oldVal) {
+            if (newVal != oldVal) {
+                if(savePromise) {
+                    $timeout.cancel(savePromise);
+                }
+
+                savePromise = $timeout(function() {
+                    savePromise = null;
+                    $scope.saveData();
+                }, 3000); // delay the autosaving so that it is not saved after every keystroke but after 3 sec
+            }
+        }, true); // deep watch user object
 
         $scope.saveData = function() {
             if ($scope.user){
