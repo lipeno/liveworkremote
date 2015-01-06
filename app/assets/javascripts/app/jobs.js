@@ -11,8 +11,8 @@ angular.module('angularApp')
             error(function(data, status, headers, config) {
             });
 
-        $scope.predicates = ['company', 'title'];
-        $scope.selectedPredicate = $scope.predicates[0];
+//        $scope.predicates = ['company', 'title'];
+//        $scope.selectedPredicate = $scope.predicates[0];
 
         $scope.subscribe = function(email){
             $http.post('/api/newsletter/subscribe', {email:email}).
