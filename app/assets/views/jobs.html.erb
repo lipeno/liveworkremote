@@ -60,9 +60,9 @@
     <tbody>
     <tr ng-repeat="row in jobsCollection">
         <td>{{row.company}}</td>
-        <td><a ng-href="{{row.url}}">{{row.title}}</a>
+        <td><a ng-href="{{row.url}}" target="_blank">{{row.title}}</a>
           <br>
-          <em> {{row.description | limitTo : 260}}...</em></td>
+          <!--<em> {{row.description | limitTo : 260}}...</em></td>-->
         <td>{{row.published_at | date:'MMMM d'}}</td>
     </tr>
     </tbody>
