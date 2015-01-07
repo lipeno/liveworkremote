@@ -42,11 +42,11 @@
     <span class="sr-only">Toggle navigation</span>
   </button>
   <div class="row">
-    <div class="col-md-2">
-      <a href="#main"><img src="<%= asset_path 'logo.png' %>"></a>
+    <!--<div class="col-md-2">-->
+      <!--<a href="#main"><img src="<%= asset_path 'logo.png' %>"></a>-->
 
-    </div>
-    <div class="col-md-10">
+    <!--</div>-->
+    <div class="col-md-12">
       <div class="brand-title">
         <h1>
           <a href="#main">Live Work Remote</a>
@@ -83,14 +83,31 @@
 <div ui-view></div>
 
 
-<footer id="footer">
-<section class="footbot">
-  <div class="container">
-    <div class="footer-navi">© 2014 <a href="">Live Work Remote</a> All Rights Reserved.</div>
-  </div>
-  <!-- footer-navigation /end -->
-</section>
-<!-- end-footbot -->
+<footer id="footer" ng-controller="JobsCtrl">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="thumbnail center well well-small text-center">
+          <h2>Receive remote jobs to your email</h2>
+
+          <p>Get curated and personalized listing of remote jobs once per week!</p>
+
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="e-mail" ng-model="email">
+                  <span class="input-group-btn">
+                    <button ng-click="subscribe(email)" class="btn btn-default" type="button">Subscribe</button>
+                  </span>
+              </div><!-- /input-group -->
+              <div ng-if="responseMessage">
+                <br>
+                <span class="badge bg-info">{{responseMessage}}</span>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div>
+      </div>
+    </div>
 </footer>
 <!-- end-footer -->
 <span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>

@@ -2,32 +2,32 @@
 <!--https://weworkremotely.com/categories/2/jobs.rss-->
 
 <div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="thumbnail center well well-small text-center">
-          <h2>Receive jobs to your email</h2>
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<div class="thumbnail center well well-small text-center">-->
+          <!--<h2>Receive jobs to your email</h2>-->
 
-          <p>Get curated and personalized listing of remote jobs once per week!</p>
+          <!--<p>Get curated and personalized listing of remote jobs once per week!</p>-->
 
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="e-mail" ng-model="email">
-                  <span class="input-group-btn">
-                    <button ng-click="subscribe(email)" class="btn btn-default" type="button">Subscribe</button>
-                  </span>
-              </div><!-- /input-group -->
-              <div ng-if="responseMessage">
-                <br>
-                <span class="badge bg-info">{{responseMessage}}</span>
-            </div>
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
-        </div>
-      </div>
-    </div>
-  </div>
+          <!--<div class="row">-->
+            <!--<div class="col-md-4 col-md-offset-4">-->
+              <!--<div class="input-group">-->
+                <!--<input type="text" class="form-control" placeholder="e-mail" ng-model="email">-->
+                  <!--<span class="input-group-btn">-->
+                    <!--<button ng-click="subscribe(email)" class="btn btn-default" type="button">Subscribe</button>-->
+                  <!--</span>-->
+              <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
+              <!--<div ng-if="responseMessage">-->
+                <!--<br>-->
+                <!--<span class="badge bg-info">{{responseMessage}}</span>-->
+            <!--</div>-->
+            <!--</div>&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
+          <!--</div>&lt;!&ndash; /.row &ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
 
 
@@ -36,10 +36,11 @@
 
     </div>
     <div class="col-md-4 text-center">
-      <h2>Remote Jobs
-      </h2>
+        <h1>Remote jobs</h1>
+
+        <h4>from all of the websites in one place</h4>
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-3 text-center">
       <h2>
         <a class="btn btn-default btn-danger" ng-href="mailto:{{'andrejdragisic@gmail.com'}}" target="_blank">Post a job: $149 for 4 weeks</a>
 
@@ -47,24 +48,28 @@
     </div>
 </div>
 
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table st-table="jobsCollection" class="table table-striped">
+        <thead>
 
-  <table st-table="jobsCollection" class="table table-striped">
-    <thead>
+        <tr>
+          <th>Company</th>
+          <th>Title</th>
+          <th>Published</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in jobsCollection">
+          <td>{{row.company}}</td>
+          <td><a ng-href="{{row.url}}" target="_blank">{{row.title}}</a>
+            <br>
+            <!--<em> {{row.description | limitTo : 260}}...</em></td>-->
+          <td>{{row.published_at | date:'MMMM d'}}</td>
+        </tr>
+        </tbody>
+      </table>
 
-    <tr>
-      <th>Company</th>
-      <th>Title</th>
-      <th>Published</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="row in jobsCollection">
-        <td>{{row.company}}</td>
-        <td><a ng-href="{{row.url}}" target="_blank">{{row.title}}</a>
-          <br>
-          <!--<em> {{row.description | limitTo : 260}}...</em></td>-->
-        <td>{{row.published_at | date:'MMMM d'}}</td>
-    </tr>
-    </tbody>
-  </table>
+    </div>
+  </div>
 </div>
