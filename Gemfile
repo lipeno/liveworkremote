@@ -21,9 +21,9 @@ group :development do
   gem 'pry-rescue'
   gem 'binding_of_caller' # to enable the REPL and local/instance variable inspection for better_errors gem
   gem "better_errors" # Errors screen which pops up in browser and shows details
+  gem 'quiet_assets'
 end
 
-gem 'quiet_assets', group: :development
 
 group :production do
   gem 'unicorn'   # Use unicorn as the app server
