@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.2.1'
 gem 'rails', '4.1.0'
 
 gem 'pg' # Use postgresql as the database for Active Record
@@ -14,6 +14,9 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'httparty'
 gem 'jbuilder', '~> 1.2'
 gem 'mailchimp-api'
+gem "oauth2"
+gem 'prerender_rails'
+
 
 group :development do
   gem 'pry'  # Need to include this in gemfile to get automatic require "pry" in each file

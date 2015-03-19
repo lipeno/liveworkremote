@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('angularApp', ['smart-table', 'uiGmapgoogle-maps', 'ngAutocomplete', 'ui.router', 'restangular', 'infinite-scroll', "ui.bootstrap.tpls", 'ui.bootstrap.pagination', 'ui.bootstrap.tabs', 'ui.gravatar', 'ui.bootstrap.tooltip'])
-        .config(function (RestangularProvider) { // Configure Restangular
+        .config(function (RestangularProvider, $locationProvider) { // Configure Restangular
+            $locationProvider.hashPrefix('!');
+
             RestangularProvider.setBaseUrl('/api');
             RestangularProvider.setMethodOverriders(["put", "patch"]);
             RestangularProvider.setRequestSuffix('.json');

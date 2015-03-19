@@ -78,4 +78,7 @@ PalytteApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Use prerender.io for SEO
+  config.middleware.use Rack::Prerender, prerender_token: 'C38f81xp6zOs9mmFWsEN'
 end

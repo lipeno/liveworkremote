@@ -60,16 +60,21 @@ GEM
     erubis (2.7.0)
     excon (0.41.0)
     execjs (2.0.2)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     hike (1.2.3)
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    httpauth (0.2.0)
     i18n (0.6.9)
     interception (0.5)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     json (1.8.1)
+    jwt (0.1.5)
+      multi_json (>= 1.0)
     kgio (2.9.2)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -82,11 +87,21 @@ GEM
     minitest (5.3.3)
     multi_json (1.9.3)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     ngmin-rails (0.4.0)
       rails (>= 3.1)
+    oauth2 (0.8.0)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
+    prerender_rails (1.1.2)
+      activesupport
+      rack
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -182,7 +197,9 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   mailchimp-api
   ngmin-rails
+  oauth2
   pg
+  prerender_rails
   pry
   pry-byebug
   pry-rescue
