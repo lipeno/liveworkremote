@@ -29,6 +29,6 @@ end
 
 
 group :production do
-  gem 'unicorn'   # Use unicorn as the app server
+  gem 'puma'   # Use unicorn as the app server
   gem 'rails_12factor'
 end
