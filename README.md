@@ -1,9 +1,6 @@
-palytte
-=======
+# Liveworkremote
 
-Palytte - A Simple Way To Discover Everything in Your Color Palytte
-
-It is using Ruby 2.0, Ruby on Rails 4.1 and PostgreSQL on the server, and Angular.js 1.2.6 on the client side.
+It is using Ruby, Ruby on Rails, and PostgreSQL on the backend, and Angular.js on the frontend.
 
 ### Setup
 
